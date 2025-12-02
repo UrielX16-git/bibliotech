@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bibliotech</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/superhero/bootstrap.min.css">
+    <style>
+        .table td {
+            vertical-align: middle;
+        }
+
+        .paper-img {
+            height: 150px;
+            width: auto;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href=".">
+            <img src="img/icon.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy"
+                style="margin-right: 10px; background-color: white; border-radius: 50%;">
+            Bibliotech
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <form class="form-inline mx-auto">
+                <input class="form-control mr-sm-2" name="search" id="search" type="search"
+                    placeholder="Buscar paper..." aria-label="Search">
+                <button class="btn btn-success my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
+            <button class="btn btn-primary my-2 my-sm-0" type="button">Iniciar Sesión</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row p-4">
+            <div class="col-md-12">
+                <div class="card my-4 d-none" id="paper-result">
+                    <div class="card-body">
+                        <ul id="container"></ul>
+                    </div>
+                </div>
+
+                <table class="table table-bordered table-sm">
+                    <thead>
+                        <tr>
+                            <td>Nombre</td>
+                            <td>Autores</td>
+                            <td>Fecha Publicación</td>
+                            <td>Explicación</td>
+                            <td>Imagen</td>
+                        </tr>
+                    </thead>
+                    <tbody id="papers">
+                        <tr>
+                            <td>Prueba</td>
+                            <td>Prueba</td>
+                            <td>Prueba</td>
+                            <td>Prueba</td>
+                            <td><img src="https://picsum.photos/400/600" alt="Transformer" class="paper-img">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
