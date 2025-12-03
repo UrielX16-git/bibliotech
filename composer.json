@@ -1,0 +1,10 @@
+{
+    "name": "bibliotech/backend",
+    "description": "Backend for Bibliotech",
+    "autoload": {
+        "psr-4": {
+            "Bibliotech\\MyApi\\": "backend/myapi/"
+        }
+    },
+    "require": {}
+}
