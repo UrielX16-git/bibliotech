@@ -60,6 +60,10 @@
             color: #eef116;
             margin-bottom: 10px;
         }
+
+        #search {
+            width: 500px;
+        }
     </style>
 </head>
 
@@ -79,7 +83,6 @@
             <form class="form-inline mx-auto">
                 <input class="form-control mr-sm-2" name="search" id="search" type="search"
                     placeholder="Buscar paper..." aria-label="Search">
-                <button class="btn btn-success my-2 my-sm-0" type="submit">Buscar</button>
             </form>
             <button class="btn btn-primary my-2 my-sm-0" type="button">Iniciar Sesión</button>
         </div>
@@ -88,11 +91,6 @@
     <div class="container">
         <div class="row p-4">
             <div class="col-md-12">
-                <div class="card my-4 d-none" id="paper-result">
-                    <div class="card-body">
-                        <ul id="container"></ul>
-                    </div>
-                </div>
 
                 <div id="papers"></div>
             </div>
