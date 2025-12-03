@@ -6,14 +6,59 @@
     <title>Bibliotech</title>
     <link rel="stylesheet" href="https://bootswatch.com/4/superhero/bootstrap.min.css">
     <style>
-        .table td {
-            vertical-align: middle;
+        .paper-card {
+            margin-bottom: 20px;
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: #525252;
+        }
+
+        .paper-card .row {
+            margin: 10px;
+        }
+
+        .paper-img-container {
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
         }
 
         .paper-img {
-            height: 150px;
-            width: auto;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
+            max-height: 250px;
+        }
+
+        .paper-content {
+            padding: 15px;
+            color: #fff;
+        }
+
+        .paper-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .paper-title {
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .paper-date {
+            font-size: 1.4em;
+            color: #ccc;
+        }
+
+        .paper-authors {
+            font-style: italic;
+            color: #eef116;
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -49,19 +94,7 @@
                     </div>
                 </div>
 
-                <table class="table table-bordered table-sm">
-                    <thead>
-                        <tr>
-                            <td>Nombre</td>
-                            <td>Autores</td>
-                            <td>Fecha Publicación</td>
-                            <td>Explicación</td>
-                            <td>Imagen</td>
-                        </tr>
-                    </thead>
-                    <tbody id="papers">
-                    </tbody>
-                </table>
+                <div id="papers"></div>
             </div>
         </div>
     </div>

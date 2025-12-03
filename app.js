@@ -14,13 +14,25 @@ $(document).ready(function () {
                 papers.forEach(paper => {
                     let imagenPath = paper.Imagen.replace('../', '');
                     template += `
-                        <tr paperId="${paper.ID}">
-                            <td>${paper.Nombre}</td>
-                            <td>${paper.Autores}</td>
-                            <td>${paper.Fecha}</td>
-                            <td>${paper.Explicacion}</td>
-                            <td><img src="${imagenPath}" alt="${paper.Nombre}" class="paper-img"></td>
-                        </tr>
+                        <div class="paper-card" paperId="${paper.ID}">
+                            <div class="row">
+                                <div class="col-md-3 paper-img-container">
+                                    <img src="${imagenPath}" alt="${paper.Nombre}" class="paper-img">
+                                </div>
+                                <div class="col-md-9 paper-content">
+                                    <div class="paper-header">
+                                        <h4 class="paper-title">${paper.Nombre}</h4>
+                                        <span class="paper-date">${paper.Fecha}</span>
+                                    </div>
+                                    <div class="paper-authors">
+                                        Autores: ${paper.Autores}
+                                    </div>
+                                    <div class="paper-description">
+                                        ${paper.Explicacion}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     `;
                 });
                 $('#papers').html(template);
@@ -49,13 +61,25 @@ $(document).ready(function () {
                     papers.forEach(paper => {
                         let imagenPath = paper.Imagen.replace('../', '');
                         template += `
-                            <tr paperId="${paper.ID}">
-                                <td>${paper.Nombre}</td>
-                                <td>${paper.Autores}</td>
-                                <td>${paper.Fecha}</td>
-                                <td>${paper.Explicacion}</td>
-                                <td><img src="${imagenPath}" alt="${paper.Nombre}" class="paper-img"></td>
-                            </tr>
+                            <div class="paper-card" paperId="${paper.ID}">
+                                <div class="row">
+                                    <div class="col-md-3 paper-img-container">
+                                        <img src="${imagenPath}" alt="${paper.Nombre}" class="paper-img">
+                                    </div>
+                                    <div class="col-md-9 paper-content">
+                                        <div class="paper-header">
+                                            <h4 class="paper-title">${paper.Nombre}</h4>
+                                            <span class="paper-date">${paper.Fecha}</span>
+                                        </div>
+                                        <div class="paper-authors">
+                                            Autores: ${paper.Autores}
+                                        </div>
+                                        <div class="paper-description">
+                                            ${paper.Explicacion}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         `;
 
                         template_bar += `
@@ -65,7 +89,7 @@ $(document).ready(function () {
 
                     $('#paper-result').removeClass('d-none');
                     $('#container').html(template_bar);
-                    $('#papers').html(template);
+                    $('#papers-container').html(template);
                 }
             });
         } else {
