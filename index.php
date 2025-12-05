@@ -108,7 +108,7 @@ $user = $result->fetch_assoc();
                     </li>
                     <?php if ($user["role"] === 'admin'): ?>
                         <li class="nav-item">
-                            <a class="btn btn-primary my-2 my-sm-0 mr-2" href="subir/index.php">Subir Recursos</a>
+                            <a class="btn btn-primary my-2 my-sm-0 mr-2" href="subir/">Subir Recursos</a>
                         </li>
                     <?php endif; ?>
                     <li class="nav-item">

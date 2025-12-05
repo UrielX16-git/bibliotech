@@ -32,7 +32,7 @@ if ($_SESSION["user_role"] !== 'admin') {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="btn btn-primary my-2 my-sm-0 mr-2" href="../index.php">Volver al inicio</a>
+                    <a class="btn btn-primary my-2 my-sm-0 mr-2" href="../">Volver al inicio</a>
                 </li>
                 <li class="nav-item">
                     <a class="btn btn-primary my-2 my-sm-0" href="../logout.php">Cerrar Sesión</a>
@@ -62,6 +62,11 @@ if ($_SESSION["user_role"] !== 'admin') {
                             <div class="form-group">
                                 <label for="fecha">Fecha de Publicación</label>
                                 <input type="date" class="form-control" id="fecha" name="fecha" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="tipo">Tipo</label>
+                                <input type="text" class="form-control" id="tipo" name="tipo"
+                                    placeholder="Ej. Artículo, LLM, Modelo, etc." required>
                             </div>
                             <div class="form-group">
                                 <label for="explicacion">Explicación</label>

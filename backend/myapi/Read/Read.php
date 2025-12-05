@@ -30,7 +30,7 @@ class Read extends DataBase
     public function search($search)
     {
         if (!empty($search)) {
-            $sql = "SELECT * FROM papers WHERE (Nombre LIKE '%{$search}%' OR Autores LIKE '%{$search}%' OR Explicacion LIKE '%{$search}%' OR Fecha LIKE '%{$search}%') AND Borrado = 0";
+            $sql = "SELECT * FROM papers WHERE (Nombre LIKE '%{$search}%' OR Autores LIKE '%{$search}%' OR Explicacion LIKE '%{$search}%' OR Fecha LIKE '%{$search}%' OR Tipo LIKE '%{$search}%') AND Borrado = 0";
             if ($result = $this->conexion->query($sql)) {
                 $rows = $result->fetch_all(MYSQLI_ASSOC);
                 if (!\is_null($rows)) {

@@ -27,6 +27,9 @@ $(document).ready(function () {
                                     <div class="paper-authors">
                                         Autores: ${paper.Autores}
                                     </div>
+                                    <div class="paper-type text-muted mb-2">
+                                        Tipo: ${paper.Tipo}
+                                    </div>
                                         ${paper.Explicacion}
                                     </div>
                                     <a href="${paper.Archivo.replace('../', '')}" class="btn btn-outline-info btn-sm mt-3" target="_blank" download>
@@ -83,6 +86,9 @@ $(document).ready(function () {
                                             </div>
                                             <div class="paper-authors">
                                                 Autores: ${paper.Autores}
+                                            </div>
+                                            <div class="paper-type text-muted mb-2">
+                                                Tipo: ${paper.Tipo}
                                             </div>
                                                 ${paper.Explicacion}
                                             </div>

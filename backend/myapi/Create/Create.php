@@ -69,13 +69,14 @@ class Create extends DataBase
             0
         )";
 
-        $sql = "INSERT INTO papers (Nombre, Autores, Fecha, Explicacion, Imagen, Archivo, Borrado) VALUES (
+        $sql = "INSERT INTO papers (Nombre, Autores, Fecha, Explicacion, Imagen, Archivo, Tipo, Borrado) VALUES (
             '{$params['nombre']}',
             '{$params['autores']}',
             '{$params['fecha']}',
             '{$params['explicacion']}',
             '{$dbImgPath}',
             '{$dbPaperPath}',
+            '{$params['tipo']}',
             0
         )";
 
