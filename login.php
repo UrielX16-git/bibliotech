@@ -26,6 +26,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION["user_id"] = $user["id"];
         $_SESSION["user_role"] = $user["role"];
 
+        // Bitacora Login
+        $fecha = date("Y-m-d H:i:s");
+        $mysqli->query("INSERT INTO acceso (usuario_id, fecha, login) VALUES ({$user['id']}, '$fecha', 1)");
+
         header("Location: .");
         exit;
     }
