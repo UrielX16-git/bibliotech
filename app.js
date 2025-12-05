@@ -27,9 +27,11 @@ $(document).ready(function () {
                                     <div class="paper-authors">
                                         Autores: ${paper.Autores}
                                     </div>
-                                    <div class="paper-description">
                                         ${paper.Explicacion}
                                     </div>
+                                    <a href="${paper.Archivo.replace('../', '')}" class="btn btn-outline-info btn-sm mt-3" target="_blank" download>
+                                        Descargar PDF
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -77,9 +79,11 @@ $(document).ready(function () {
                                             <div class="paper-authors">
                                                 Autores: ${paper.Autores}
                                             </div>
-                                            <div class="paper-description">
                                                 ${paper.Explicacion}
                                             </div>
+                                            <a href="${paper.Archivo.replace('../', '')}" class="btn btn-outline-info btn-sm mt-3" target="_blank" download>
+                                                Descargar PDF
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
