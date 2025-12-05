@@ -32,6 +32,11 @@ $(document).ready(function () {
                                     <a href="${paper.Archivo.replace('../', '')}" class="btn btn-outline-info btn-sm mt-3" target="_blank" download>
                                         Descargar PDF
                                     </a>
+                                    ${(typeof userRole !== 'undefined' && userRole === 'admin') ?
+                            `<button class="paper-delete btn btn-danger btn-sm mt-3 ml-2" paperId="${paper.ID}">
+                                            Eliminar
+                                        </button>` : ''
+                        }
                                 </div>
                             </div>
                         </div>
@@ -84,6 +89,11 @@ $(document).ready(function () {
                                             <a href="${paper.Archivo.replace('../', '')}" class="btn btn-outline-info btn-sm mt-3" target="_blank" download>
                                                 Descargar PDF
                                             </a>
+                                            ${(typeof userRole === 'admin') ?
+                                    `<button class="paper-delete btn btn-danger btn-sm mt-3 ml-2" paperId="${paper.ID}">
+                                                    Eliminar
+                                                </button>` : ''
+                                }
                                         </div>
                                     </div>
                                 </div>
@@ -98,6 +108,22 @@ $(document).ready(function () {
         } else {
 
             listarPapers(); // Volver a listar todos si no hay búsqueda
+        }
+    });
+
+    // ELIMINAR PAPER
+    $(document).on('click', '.paper-delete', function () {
+        if (confirm('¿Estás seguro de que deseas eliminar este paper?')) {
+            let element = $(this)[0].parentElement.parentElement.parentElement;
+            let id = $(this).attr('paperId');
+            $.post('./backend/paper-delete.php', { id: id }, function (response) {
+                let data = JSON.parse(response);
+                if (data.status === 'success') {
+                    listarPapers();
+                } else {
+                    alert(data.message);
+                }
+            });
         }
     });
 });
