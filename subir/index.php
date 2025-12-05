@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+// Verificar login
+if (!isset($_SESSION["user_id"])) {
+    header("Location: ../login.php");
+    exit;
+}
+
+// Verificar admin
+if ($_SESSION["user_role"] !== 'admin') {
+    die("ACCESO DENEGADO: No tienes permisos de administrador para ver esta página.");
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -9,11 +23,22 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="../index.html">
+        <a class="navbar-brand" href="../">
             <img src="../archivos/img/icon.png" width="30" height="30" class="d-inline-block align-top" alt=""
                 loading="lazy" style="margin-right: 10px; background-color: white; border-radius: 50%;">
             Bibliotech
         </a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="btn btn-primary my-2 my-sm-0 mr-2" href="../index.php">Volver al inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-primary my-2 my-sm-0" href="../logout.php">Cerrar Sesión</a>
+                </li>
+            </ul>
+        </div>
     </nav>
 
     <div class="container mt-4">
@@ -45,8 +70,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="imagen">Imagen de Portada</label>
-                                <input type="file" class="form-control-file" id="imagen" name="imagen" accept="image/*"
-                                    required>
+                                <input type="file" class="form-control-file" id="imagen" name="imagen" accept="image/*">
                             </div>
                             <div class="form-group">
                                 <label for="paper">Documento PDF</label>

@@ -30,19 +30,19 @@ class Create extends DataBase
         $imgDir = __DIR__ . '/../../../archivos/img/';
         $paperDir = __DIR__ . '/../../../archivos/papers/';
 
-        if ($files['imagen']['error'] !== UPLOAD_ERR_OK) {
-            $data['message'] = 'Error en subida de imagen. Código: ' . $files['imagen']['error'];
-            return json_encode($data, JSON_PRETTY_PRINT);
-        }
+        if (isset($files['imagen']) && $files['imagen']['error'] === UPLOAD_ERR_OK) {
+            $imgExt = pathinfo($files['imagen']['name'], PATHINFO_EXTENSION);
+            $imgName = $cleanName . '.' . $imgExt;
+            $imgPath = $imgDir . $imgName;
+            $dbImgPath = '../archivos/img/' . $imgName;
 
-        $imgExt = pathinfo($files['imagen']['name'], PATHINFO_EXTENSION);
-        $imgName = $cleanName . '.' . $imgExt;
-        $imgPath = $imgDir . $imgName;
-        $dbImgPath = '../archivos/img/' . $imgName;
-
-        if (!move_uploaded_file($files['imagen']['tmp_name'], $imgPath)) {
-            $data['message'] = "Error al mover la imagen a: $imgPath";
-            return json_encode($data, JSON_PRETTY_PRINT);
+            if (!move_uploaded_file($files['imagen']['tmp_name'], $imgPath)) {
+                $data['message'] = "Error al mover la imagen a: $imgPath";
+                return json_encode($data, JSON_PRETTY_PRINT);
+            }
+        } else {
+            // Sin imagen
+            $dbImgPath = '../archivos/img/default.png';
         }
 
         if ($files['paper']['error'] !== UPLOAD_ERR_OK) {

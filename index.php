@@ -1,3 +1,19 @@
+<?php
+session_start();
+
+$user = null;
+
+if (!isset($_SESSION["user_id"])) {
+    header("Location: login.php");
+    exit;
+}
+
+$mysqli = require __DIR__ . "/database.php";
+
+$sql = "SELECT * FROM logindb WHERE id = {$_SESSION["user_id"]}";
+$result = $mysqli->query($sql);
+$user = $result->fetch_assoc();
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -84,7 +100,22 @@
                 <input class="form-control mr-sm-2" name="search" id="search" type="search"
                     placeholder="Buscar paper..." aria-label="Search">
             </form>
-            <button class="btn btn-primary my-2 my-sm-0" type="button">Iniciar Sesión</button>
+
+            <ul class="navbar-nav">
+                <?php if (isset($user)): ?>
+                    <li class="nav-item">
+                        <span class="nav-link">Hola, <?= htmlspecialchars($user["nombre"]) ?></span>
+                    </li>
+                    <?php if ($user["role"] === 'admin'): ?>
+                        <li class="nav-item">
+                            <a class="btn btn-primary my-2 my-sm-0 mr-2" href="subir/index.php">Subir Recursos</a>
+                        </li>
+                    <?php endif; ?>
+                    <li class="nav-item">
+                        <a class="btn btn-primary my-2 my-sm-0" href="logout.php">Cerrar Sesión</a>
+                    </li>
+                <?php endif; ?>
+            </ul>
         </div>
     </nav>
 
