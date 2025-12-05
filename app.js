@@ -32,7 +32,7 @@ $(document).ready(function () {
                                     </div>
                                         ${paper.Explicacion}
                                     </div>
-                                    <a href="${paper.Archivo.replace('../', '')}" class="btn btn-outline-info btn-sm mt-3" target="_blank" download>
+                                    <a href="backend/download.php?id=${paper.ID}" class="btn btn-outline-info btn-sm mt-3" target="_blank">
                                         Descargar PDF
                                     </a>
                                     ${(typeof userRole !== 'undefined' && userRole === 'admin') ?
@@ -92,7 +92,7 @@ $(document).ready(function () {
                                             </div>
                                                 ${paper.Explicacion}
                                             </div>
-                                            <a href="${paper.Archivo.replace('../', '')}" class="btn btn-outline-info btn-sm mt-3" target="_blank" download>
+                                            <a href="backend/download.php?id=${paper.ID}" class="btn btn-outline-info btn-sm mt-3" target="_blank">
                                                 Descargar PDF
                                             </a>
                                             ${(typeof userRole === 'admin') ?
