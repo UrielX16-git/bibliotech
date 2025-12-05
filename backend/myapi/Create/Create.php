@@ -5,8 +5,11 @@ use Bibliotech\MyApi\DataBase;
 
 class Create extends DataBase
 {
-    public function __construct($db, $user = 'root', $pass = '161202', $host = 'localhost')
+    public function __construct($db, $user = null, $pass = null, $host = null)
     {
+        $user = $user ?: getenv('DB_USER') ?: 'root';
+        $pass = $pass ?: getenv('DB_PASSWORD') ?: 'root';
+        $host = $host ?: getenv('DB_HOST') ?: 'localhost';
         parent::__construct($db, $user, $pass, $host);
     }
 

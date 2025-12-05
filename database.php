@@ -1,8 +1,8 @@
 <?php
-$host = "localhost";
-$dbname = "bibliotech";
-$username = "root";
-$password = "161202";
+$host = getenv('DB_HOST') ?: "db";
+$dbname = getenv('DB_NAME') ?: "bibliotech";
+$username = getenv('DB_USER') ?: "root";
+$password = getenv('DB_PASSWORD') ?: "root";
 
 $mysqli = new mysqli($host, $username, $password, $dbname);
 

@@ -8,9 +8,12 @@ require_once __DIR__ . '/../DataBase.php';
 class Stats extends DataBase
 {
 
-    public function __construct($dbName, $user = 'root', $pass = '161202')
+    public function __construct($dbName, $user = null, $pass = null, $host = null)
     {
-        parent::__construct($dbName, $user, $pass);
+        $user = $user ?: getenv('DB_USER') ?: 'root';
+        $pass = $pass ?: getenv('DB_PASSWORD') ?: 'root';
+        $host = $host ?: getenv('DB_HOST') ?: 'localhost';
+        parent::__construct($dbName, $user, $pass, $host);
     }
 
     public function obtenerDescargasPorTipo()
