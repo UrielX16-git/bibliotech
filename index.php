@@ -111,6 +111,9 @@ $user = $result->fetch_assoc();
                         <li class="nav-item">
                             <a class="btn btn-primary my-2 my-sm-0 mr-2" href="subir/">Subir Recursos</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="btn btn-info my-2 my-sm-0 mr-2" href="estadisticas/">Estadísticas</a>
+                        </li>
                     <?php endif; ?>
                     <li class="nav-item">
                         <a class="btn btn-primary my-2 my-sm-0" href="logout.php">Cerrar Sesión</a>
