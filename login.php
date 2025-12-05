@@ -45,13 +45,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta charset="UTF-8">
     <title>Login - Bibliotech</title>
     <link rel="stylesheet" href="https://bootswatch.com/4/superhero/bootstrap.min.css">
+    <link rel="icon" href="archivos/img/icon.png" type="image/png">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href=".">
             <img src="archivos/img/icon.png" width="30" height="30" class="d-inline-block align-top" alt=""
-                loading="lazy" style="margin-right: 10px; background-color: white; border-radius: 50%;">
+                loading="lazy" style="margin-right: 10px; background-color: white;">
             Bibliotech
         </a>
 
